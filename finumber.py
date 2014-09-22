@@ -42,47 +42,59 @@ def ten_to_nineteen(number):
 
 
 def twenty_to_ninetynine(number):
-    d, m = divmod(number, 10)
-    word = less_than_ten(d) + "kymmentä"
+    unit_base = 10
+    unit_text = "kymmentä"
+
+    d, m = divmod(number, unit_base)
+    word = less_than_ten(d) + unit_text
     if m > 0:
         word += less_than_ten(m)
     return word
 
 
 def hundred_to_999(number):
-    if number == 100:
-        return "sata"
-    d, m = divmod(number, 100)
+    unit_base = 100
+    unit_text = "sata"
+
+    if number == unit_base:
+        return unit_text
+    d, m = divmod(number, unit_base)
     if d > 1:
-        word = less_than_ten(d) + hundred_to_999(100) + "a"
+        word = less_than_ten(d) + unit_text + "a"
     else:
-        word = hundred_to_999(100)
+        word = unit_text
     if m > 0:
         word += to_finnish(m)
     return word
 
 
 def thousand_to_999999(number):
-    if number == 1000:
-        return "tuhat"
-    d, m = divmod(number, 1000)
+    unit_base = 1000
+    unit_text = "tuhat"
+
+    if number == unit_base:
+        return unit_text
+    d, m = divmod(number, unit_base)
     if d > 1:
-        word = to_finnish(d) + thousand_to_999999(1000) + "ta"
+        word = to_finnish(d) + unit_text + "ta"
     else:
-        word = thousand_to_999999(1000)
+        word = unit_text
     if m > 0:
         word += to_finnish(m)
     return word
 
 
 def million_to_999999999(number):
-    if number == 1000000:
-        return "miljoona"
-    d, m = divmod(number, 1000000)
+    unit_base = 1000000
+    unit_text = "miljoona"
+
+    if number == unit_base:
+        return unit_text
+    d, m = divmod(number, unit_base)
     if d > 1:
-        word = to_finnish(d) + million_to_999999999(1000000) + "a"
+        word = to_finnish(d) + unit_text + "a"
     else:
-        word = million_to_999999999(1000000)
+        word = unit_text
     if m > 0:
         word += to_finnish(m)
     return word
