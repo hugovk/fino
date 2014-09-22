@@ -251,8 +251,6 @@ class TestIt(unittest.TestCase):
         word = finumber.to_finnish(number)
         self.assertEqual(word, "neljätuhattabiljoonaa")
 
-    @unittest.skipIf(hasattr(sys, 'pypy_version_info'),
-                     "Too slow on PyPy3")
     def test_range(self):
         # Just check no errors
         for number in range(0, 100000):
