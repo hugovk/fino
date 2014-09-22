@@ -42,11 +42,8 @@ def ten_to_nineteen(number):
 
 
 def twenty_to_ninetynine(number):
-    unit_base = 10
-    unit_text = "kymmentä"
-
-    d, m = divmod(number, unit_base)
-    word = less_than_ten(d) + unit_text
+    d, m = divmod(number, 10)
+    word = less_than_ten(d) + "kymmentä"
     if m > 0:
         word += less_than_ten(m)
     return word
@@ -57,6 +54,7 @@ def hundred_to_999(number):
     unit_text = "sata"
 
     return wordify(number, unit_base, unit_text)
+
 
 def thousand_to_999999(number):
     unit_base = 1000
@@ -86,7 +84,6 @@ def wordify(number, unit_base, unit_text, partitive_suffix="a"):
     return word
 
 
-
 def to_finnish(number):
     if number >= 0 and number < 10:
         return less_than_ten(number)
@@ -111,15 +108,21 @@ if __name__ == "__main__":
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('number', type=int, help="An input integer")
     parser.add_argument(
-        'end', type=int, nargs='?',
+        'end', nargs='?',  # type=int,
         help="An optional end integer. Prints all numbers from the first one "
-             "up to this one.")
+             "up to this one. Use 'max' for the maximum supported integer.")
     args = parser.parse_args()
 
     if not args.end:
         print(to_finnish(args.number))
     else:
-        for i in range(args.number, args.end+1):
+        if args.end == "max":
+            end = MAX_INTEGER_SUPPORTED
+        else:
+            end = int(args.end)
+        i = args.number
+        while(i < end+1):
             print(i, to_finnish(i))
+            i += 1
 
 # End of file
