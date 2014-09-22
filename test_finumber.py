@@ -21,7 +21,7 @@ class TestIt(unittest.TestCase):
         self.assertEqual(word, "en tiedä")
 
     def test_unknown2(self):
-        number = 9999999999
+        number = finumber.MAX_INTEGER_SUPPORTED + 1
         word = finumber.to_finnish(number)
         self.assertEqual(word, "en tiedä")
 
@@ -199,7 +199,7 @@ class TestIt(unittest.TestCase):
                                "yhdeksänsataayhdeksänkymmentäyhdeksän")
 
     def test_miljoona(self):
-        number = 1000000
+        number = 10**6
         word = finumber.to_finnish(number)
         self.assertEqual(word, "miljoona")
 
@@ -215,11 +215,47 @@ class TestIt(unittest.TestCase):
                                "yhdeksänsataayhdeksänkymmentäyhdeksäntuhatta"
                                "yhdeksänsataayhdeksänkymmentäyhdeksän")
 
+    def test_miljardi(self):
+        number = 10**9
+        word = finumber.to_finnish(number)
+        self.assertEqual(word, "miljardi")
+
+    def test_1234567890(self):
+        number = 1234567890
+        word = finumber.to_finnish(number)
+        self.assertEqual(word, "miljardi"
+                               "kaksisataakolmekymmentäneljämiljoonaa"
+                               "viisisataakuusikymmentäseitsemäntuhatta"
+                               "kahdeksansataayhdeksänkymmentä")
+
+    def test_287654321004(self):
+        number = 287654321004
+        word = finumber.to_finnish(number)
+        self.assertEqual(word, "kaksisataakahdeksankymmentäseitsemänmiljardia"
+                               "kuusisataaviisikymmentäneljämiljoonaa"
+                               "kolmesataakaksikymmentäyksituhatta"
+                               "neljä")
+
+    def test_biljoona(self):
+        number = 10**12
+        word = finumber.to_finnish(number)
+        self.assertEqual(word, "biljoona")
+
+    def test_2biljoonaa(self):
+        number = 2 * 10**12
+        word = finumber.to_finnish(number)
+        self.assertEqual(word, "kaksibiljoonaa")
+
+    def test_4000biljoonaa(self):
+        number = 4000 * 10**12
+        word = finumber.to_finnish(number)
+        self.assertEqual(word, "neljätuhattabiljoonaa")
+
     @unittest.skipIf(hasattr(sys, 'pypy_version_info'),
                      "Too slow on PyPy3")
     def test_range(self):
         # Just check no errors
-        for number in range(0, 1000000):
+        for number in range(0, 100000):
             word = finumber.to_finnish(number)
             self.assertNotEqual(word, "en tiedä")
 

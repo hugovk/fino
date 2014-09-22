@@ -8,7 +8,23 @@ import argparse
 
 # https://fi.wikipedia.org/wiki/Suurten_lukujen_nimet
 
-MAX_INTEGER_SUPPORTED = 999999999
+MAX_INTEGER_SUPPORTED = 10**18-1
+
+
+POWERS_OF_TEN = {
+    100: "sata",
+    1000: "tuhat",
+    10**6: "miljoona",
+    10**9: "miljardi",
+    10**12: "biljoona",
+}
+POWERS_OF_TEN_PARTITIVE_SUFFIXES = {
+    100: "a",
+    1000: "ta",
+    10**6: "a",
+    10**9: "a",
+    10**12: "a",
+}
 
 
 def less_than_ten(number):
@@ -49,32 +65,13 @@ def twenty_to_ninetynine(number):
     return word
 
 
-def hundred_to_999(number):
-    unit_base = 100
-    unit_text = "sata"
+def wordify(number, power_of_ten):
+    unit_text = POWERS_OF_TEN[power_of_ten]
+    partitive_suffix = POWERS_OF_TEN_PARTITIVE_SUFFIXES[power_of_ten]
 
-    return wordify(number, unit_base, unit_text)
-
-
-def thousand_to_999999(number):
-    unit_base = 1000
-    unit_text = "tuhat"
-    partitive_suffix = "ta"
-
-    return wordify(number, unit_base, unit_text, partitive_suffix)
-
-
-def million_to_999999999(number):
-    unit_base = 1000000
-    unit_text = "miljoona"
-
-    return wordify(number, unit_base, unit_text)
-
-
-def wordify(number, unit_base, unit_text, partitive_suffix="a"):
-    if number == unit_base:
+    if number == power_of_ten:
         return unit_text
-    d, m = divmod(number, unit_base)
+    d, m = divmod(number, power_of_ten)
     if d > 1:
         word = to_finnish(d) + unit_text + partitive_suffix
     else:
@@ -92,11 +89,15 @@ def to_finnish(number):
     elif number >= 20 and number <= 99:
         return twenty_to_ninetynine(number)
     elif number >= 100 and number <= 999:
-        return hundred_to_999(number)
-    elif number >= 1000 and number <= 999999:
-        return thousand_to_999999(number)
-    elif number >= 1000000 and number <= 999999999:
-        return million_to_999999999(number)
+        return wordify(number, 100)
+    elif number >= 10**3 and number <= 10**6-1:
+        return wordify(number, 10**3)
+    elif number >= 10**6 and number <= 10**9-1:
+        return wordify(number, 10**6)
+    elif number >= 10**9 and number <= 10**12-1:
+        return wordify(number, 10**9)
+    elif number >= 10**12 and number <= 10**18-1:
+        return wordify(number, 10**12)
     else:
         return "en tiedä"
 
@@ -114,7 +115,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if not args.end:
-        print(to_finnish(args.number))
+        print(len(to_finnish(args.number)), to_finnish(args.number))
     else:
         if args.end == "max":
             end = MAX_INTEGER_SUPPORTED
