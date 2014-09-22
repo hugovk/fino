@@ -87,7 +87,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if not args.end:
-        print(len(to_finnish(args.number)), to_finnish(args.number))
+        print(to_finnish(args.number))
     else:
         if args.end == "max":
             end = MAX_INTEGER_SUPPORTED
