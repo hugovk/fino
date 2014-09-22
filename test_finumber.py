@@ -8,6 +8,7 @@ try:
     import unittest
 except ImportError:
     import unittest2 as unittest
+import sys
 
 import finumber
 
@@ -214,6 +215,8 @@ class TestIt(unittest.TestCase):
                                "yhdeksänsataayhdeksänkymmentäyhdeksäntuhatta"
                                "yhdeksänsataayhdeksänkymmentäyhdeksän")
 
+    @unittest.skipIf(hasattr(sys, 'pypy_version_info'),
+                     "Too slow on PyPy3")
     def test_range(self):
         # Just check no errors
         for number in range(0, 1000000):
