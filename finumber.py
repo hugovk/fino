@@ -55,42 +55,25 @@ def twenty_to_ninetynine(number):
 def hundred_to_999(number):
     unit_base = 100
     unit_text = "sata"
-    partitive_suffix = "a"
 
-    if number == unit_base:
-        return unit_text
-    d, m = divmod(number, unit_base)
-    if d > 1:
-        word = less_than_ten(d) + unit_text + partitive_suffix
-    else:
-        word = unit_text
-    if m > 0:
-        word += to_finnish(m)
-    return word
-
+    return wordify(number, unit_base, unit_text)
 
 def thousand_to_999999(number):
     unit_base = 1000
     unit_text = "tuhat"
     partitive_suffix = "ta"
 
-    if number == unit_base:
-        return unit_text
-    d, m = divmod(number, unit_base)
-    if d > 1:
-        word = to_finnish(d) + unit_text + partitive_suffix
-    else:
-        word = unit_text
-    if m > 0:
-        word += to_finnish(m)
-    return word
+    return wordify(number, unit_base, unit_text, partitive_suffix)
 
 
 def million_to_999999999(number):
     unit_base = 1000000
     unit_text = "miljoona"
-    partitive_suffix = "a"
 
+    return wordify(number, unit_base, unit_text)
+
+
+def wordify(number, unit_base, unit_text, partitive_suffix="a"):
     if number == unit_base:
         return unit_text
     d, m = divmod(number, unit_base)
@@ -101,6 +84,7 @@ def million_to_999999999(number):
     if m > 0:
         word += to_finnish(m)
     return word
+
 
 
 def to_finnish(number):
