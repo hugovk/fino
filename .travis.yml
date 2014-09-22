@@ -14,7 +14,7 @@ install:
  - if [ "$TRAVIS_PYTHON_VERSION" == "2.6" ]; then pip install unittest2; fi
 
 script:
- - coverage run --source=finumber ./test_finumber.py
+ - coverage run --source=finumber ./test_finumber.py -v
 
 after_success:
  - pip install coveralls
@@ -28,10 +28,5 @@ after_script:
 
 matrix:
   allow_failures:
-    - python: 2.6
-    - python: 3.2
-    - python: 3.3
-    - python: 3.4
-    - python: pypy
     - python: pypy3
   fast_finish: true
