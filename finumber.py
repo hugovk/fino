@@ -30,13 +30,10 @@ SINGULAR_TENS = {
     10**9: "miljardi",
     10**12: "biljoona",
 }
+# Just the few which don't have a simple -a partitive suffix
 PLURAL_TENS = {
     10: "kymmentä",
-    100: "sataa",
     1000: "tuhatta",
-    10**6: "miljoonaa",
-    10**9: "miljardia",
-    10**12: "biljoonaa",
 }
 
 
@@ -45,7 +42,11 @@ def wordify(number, tens):
         return SINGULAR_TENS[tens]
     d, m = divmod(number, tens)
     if d > 1:
-        word = to_finnish(d) + PLURAL_TENS[tens]
+        if tens in PLURAL_TENS:
+            plural = PLURAL_TENS[tens]
+        else:
+            plural = SINGULAR_TENS[tens] + "a"
+        word = to_finnish(d) + plural
     else:
         word = SINGULAR_TENS[tens]
     if m > 0:
@@ -72,7 +73,6 @@ def to_finnish(number):
         return wordify(number, 10**12)
     else:
         return "en tiedä"
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
