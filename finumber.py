@@ -8,7 +8,7 @@ import argparse
 
 # https://fi.wikipedia.org/wiki/Suurten_lukujen_nimet
 
-MAX_INTEGER_SUPPORTED = 10**18-1
+MAX_INTEGER_SUPPORTED = 10**1200
 
 LESS_THAN_TEN = {
     0: "nolla",
@@ -29,6 +29,27 @@ SINGULAR_TENS = {
     10**6: "miljoona",
     10**9: "miljardi",
     10**12: "biljoona",
+    10**18: "triljoona",
+    10**24: "kvadriljoona",
+    10**30: "kvintiljoona",
+    10**36: "sekstiljoona",
+    10**42: "septiljoona",
+    10**48: "oktiljoona",
+    10**54: "noviljoona",
+    10**60: "dekiljoona",
+    10**66: "undekiljoona",
+    10**72: "duodekiljoona",
+    10**78: "tredekiljoona",
+    10**84: "kvattuordekiljoona",
+    10**90: "kvindekiljoona",
+    10**96: "sedekiljoona",
+    10**102: "septendekiljoona",
+    10**108: "duodevigintiljoona",
+    10**114: "undevigintiljoona",
+    10**120: "vigintiljoona",
+    10**126: "unvigintiljoona",
+    10**180: "trigintiljoona",
+    10**600: "sentiljoona",
 }
 # Just the few which don't have a simple -a partitive suffix
 PLURAL_TENS = {
@@ -54,6 +75,25 @@ def wordify(number, tens):
     return word
 
 
+def find_tens_range(number):
+    """
+    Find where a number comes in the list of tens.
+    Return the ten before (or equal to it), or None if out of range.
+    """
+    if number < 0 or number > MAX_INTEGER_SUPPORTED:
+        return None
+
+    list_of_tens = sorted(SINGULAR_TENS.keys())
+
+    import bisect
+    n = bisect.bisect_left(list_of_tens, number)
+
+    if list_of_tens[n:n+1] == [number]:
+        return list_of_tens[n]
+    else:
+        return list_of_tens[n-1]
+
+
 def to_finnish(number):
     if number >= 0 and number < 10:
         return LESS_THAN_TEN[number]
@@ -61,18 +101,13 @@ def to_finnish(number):
         return LESS_THAN_TEN[number % 10] + "toista"
     elif number == 10 or number >= 20 and number <= 99:
         return wordify(number, 10)
-    elif number >= 100 and number <= 999:
-        return wordify(number, 100)
-    elif number >= 10**3 and number <= 10**6-1:
-        return wordify(number, 10**3)
-    elif number >= 10**6 and number <= 10**9-1:
-        return wordify(number, 10**6)
-    elif number >= 10**9 and number <= 10**12-1:
-        return wordify(number, 10**9)
-    elif number >= 10**12 and number <= 10**18-1:
-        return wordify(number, 10**12)
     else:
-        return "en tiedä"
+        ten = find_tens_range(number)
+        if ten:
+            return wordify(number, ten)
+        else:
+            return "en tiedä"
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -83,14 +118,14 @@ if __name__ == "__main__":
     parser.add_argument(
         'end', nargs='?',  # type=int,
         help="An optional end integer. Prints all numbers from the first one "
-             "up to this one. Use 'max' for the maximum supported integer.")
+             "up to this one. Use 'max' for a big integer.")
     args = parser.parse_args()
 
     if not args.end:
         print(to_finnish(args.number))
     else:
         if args.end == "max":
-            end = MAX_INTEGER_SUPPORTED
+            end = sorted(SINGULAR_TENS.keys())[-1]+1
         else:
             end = int(args.end)
         i = args.number

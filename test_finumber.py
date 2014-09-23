@@ -14,12 +14,12 @@ import finumber
 
 class TestIt(unittest.TestCase):
 
-    def test_unknown(self):
+    def test_unknown_negative(self):
         number = -123
         word = finumber.to_finnish(number)
         self.assertEqual(word, "en tiedä")
 
-    def test_unknown2(self):
+    def test_unknown_positive(self):
         number = finumber.MAX_INTEGER_SUPPORTED + 1
         word = finumber.to_finnish(number)
         self.assertEqual(word, "en tiedä")
@@ -249,6 +249,16 @@ class TestIt(unittest.TestCase):
         number = 4000 * 10**12
         word = finumber.to_finnish(number)
         self.assertEqual(word, "neljätuhattabiljoonaa")
+
+    def test_sentiljoona(self):
+        number = 10**600
+        word = finumber.to_finnish(number)
+        self.assertEqual(word, "sentiljoona")
+
+    def test_3sentiljoona(self):
+        number = 3 * 10**600
+        word = finumber.to_finnish(number)
+        self.assertEqual(word, "kolmesentiljoonaa")
 
     def test_range(self):
         # Just check no errors
