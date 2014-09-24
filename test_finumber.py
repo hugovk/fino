@@ -19,11 +19,6 @@ class TestIt(unittest.TestCase):
         word = finumber.to_finnish(number)
         self.assertEqual(word, "en tiedä")
 
-    def test_unknown_positive(self):
-        number = finumber.MAX_INTEGER_SUPPORTED + 1
-        word = finumber.to_finnish(number)
-        self.assertEqual(word, "en tiedä")
-
     def test_0(self):
         number = 0
         word = finumber.to_finnish(number)
@@ -255,7 +250,7 @@ class TestIt(unittest.TestCase):
         word = finumber.to_finnish(number)
         self.assertEqual(word, "sentiljoona")
 
-    def test_3sentiljoona(self):
+    def test_3sentiljoonaa(self):
         number = 3 * 10**600
         word = finumber.to_finnish(number)
         self.assertEqual(word, "kolmesentiljoonaa")

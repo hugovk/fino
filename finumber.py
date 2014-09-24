@@ -8,8 +8,6 @@ import argparse
 
 # https://fi.wikipedia.org/wiki/Suurten_lukujen_nimet
 
-MAX_INTEGER_SUPPORTED = 10**1200
-
 LESS_THAN_TEN = {
     0: "nolla",
     1: "yksi",
@@ -80,7 +78,7 @@ def find_tens_range(number):
     Find where a number comes in the list of tens.
     Return the ten before (or equal to it), or None if out of range.
     """
-    if number < 0 or number > MAX_INTEGER_SUPPORTED:
+    if number < 0:
         return None
 
     list_of_tens = sorted(SINGULAR_TENS.keys())
@@ -118,7 +116,7 @@ if __name__ == "__main__":
     parser.add_argument(
         'end', nargs='?',  # type=int,
         help="An optional end integer. Prints all numbers from the first one "
-             "up to this one. Use 'max' for a big integer.")
+             "up to this one. Use 'max' to keep going.")
     args = parser.parse_args()
 
     if not args.end:
