@@ -5,8 +5,7 @@ Given an integer, output the Finnish word for that number.
 """
 from __future__ import print_function, unicode_literals
 import argparse
-
-# https://fi.wikipedia.org/wiki/Suurten_lukujen_nimet
+import bisect
 
 LESS_THAN_TEN = {
     0: "nolla",
@@ -20,6 +19,7 @@ LESS_THAN_TEN = {
     8: "kahdeksan",
     9: "yhdeksän"
 }
+# https://fi.wikipedia.org/wiki/Suurten_lukujen_nimet
 SINGULAR_TENS = {
     10: "kymmenen",
     100: "sata",
@@ -54,6 +54,7 @@ PLURAL_TENS = {
     10: "kymmentä",
     1000: "tuhatta",
 }
+LIST_OF_TENS = sorted(SINGULAR_TENS.keys())
 
 
 def wordify(number, tens):
@@ -81,15 +82,12 @@ def find_tens_range(number):
     if number < 0:
         return None
 
-    list_of_tens = sorted(SINGULAR_TENS.keys())
+    n = bisect.bisect_left(LIST_OF_TENS, number)
 
-    import bisect
-    n = bisect.bisect_left(list_of_tens, number)
-
-    if list_of_tens[n:n+1] == [number]:
-        return list_of_tens[n]
+    if LIST_OF_TENS[n:n+1] == [number]:
+        return LIST_OF_TENS[n]
     else:
-        return list_of_tens[n-1]
+        return LIST_OF_TENS[n-1]
 
 
 def to_finnish(number):
