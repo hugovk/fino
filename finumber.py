@@ -41,6 +41,7 @@ SINGULAR_TENS = {
     10**84: "kvattuordekiljoona",
     10**90: "kvindekiljoona",
     10**96: "sedekiljoona",
+    10**100: "googol",
     10**102: "septendekiljoona",
     10**108: "duodevigintiljoona",
     10**114: "undevigintiljoona",
@@ -53,6 +54,7 @@ SINGULAR_TENS = {
 PLURAL_TENS = {
     10: "kymmentä",
     1000: "tuhatta",
+    10**100: "googolia",
 }
 LIST_OF_TENS = sorted(SINGULAR_TENS.keys())
 

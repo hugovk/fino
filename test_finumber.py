@@ -245,6 +245,16 @@ class TestIt(unittest.TestCase):
         word = finumber.to_finnish(number)
         self.assertEqual(word, "neljätuhattabiljoonaa")
 
+    def test_googol(self):
+        number = 10**100
+        word = finumber.to_finnish(number)
+        self.assertEqual(word, "googol")
+
+    def test_8googolia(self):
+        number = 8 * 10**100 + 1
+        word = finumber.to_finnish(number)
+        self.assertEqual(word, "kahdeksangoogoliayksi")
+
     def test_sentiljoona(self):
         number = 10**600
         word = finumber.to_finnish(number)
