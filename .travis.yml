@@ -14,7 +14,7 @@ install:
  - if [ "$TRAVIS_PYTHON_VERSION" == "2.6" ]; then pip install unittest2; fi
 
 script:
- - coverage run --source=finumber ./test_finumber.py -v
+ - coverage run --source=fino ./test_fino.py -v
 
 after_success:
  - pip install coveralls
