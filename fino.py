@@ -59,6 +59,11 @@ PLURAL_TENS = {
 LIST_OF_TENS = sorted(SINGULAR_TENS.keys())
 
 
+# Windows cmd.exe cannot do Unicode so encode first
+def print_it(text):
+    print(text.encode('utf-8'))
+
+
 def wordify(number, tens):
     if number == tens:
         return SINGULAR_TENS[tens]
@@ -93,6 +98,9 @@ def find_tens_range(number):
 
 
 def to_finnish(number):
+    """
+    Given an integer, return the Finnish word for that number.
+    """
     if number >= 0 and number < 10:
         return LESS_THAN_TEN[number]
     elif number >= 11 and number <= 19:
@@ -128,7 +136,7 @@ if __name__ == "__main__":
             end = int(args.end)
         i = args.number
         while(i < end+1):
-            print(i, to_finnish(i))
+            print_it(str(i) + " " + to_finnish(i))
             i += 1
 
 # End of file
