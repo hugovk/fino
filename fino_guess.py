@@ -7,12 +7,11 @@ from __future__ import print_function, unicode_literals
 import argparse
 import random
 import fino
-import sys
 
 try:
-   input = raw_input  # raw_input in Py2 == input in Py3
+    input = raw_input  # raw_input in Py2 == input in Py3
 except NameError:
-   pass
+    pass
 
 
 if __name__ == "__main__":
