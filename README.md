@@ -7,3 +7,5 @@ fino
 [![Code Health](https://landscape.io/github/hugovk/fino/master/landscape.svg)](https://landscape.io/github/hugovk/fino/master)
 
 Given an integer, output the Finnish word for that number.
+
+ * Used by [hugovk/everyfinnishno](https://github.com/hugovk/everyfinnishno) to tweet [@EveryFinnishNo](https://twitter.com/EveryFinnishNo).
