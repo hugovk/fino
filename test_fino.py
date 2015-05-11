@@ -14,10 +14,10 @@ import fino
 
 class TestIt(unittest.TestCase):
 
-    def test_unknown_negative(self):
-        number = -123
+    def test_negative(self):
+        number = -30
         word = fino.to_finnish(number)
-        self.assertEqual(word, "en tiedä")
+        self.assertEqual(word, "miinus kolmekymmentä")
 
     def test_0(self):
         number = 0

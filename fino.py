@@ -101,7 +101,9 @@ def to_finnish(number):
     """
     Given an integer, return the Finnish word for that number.
     """
-    if number >= 0 and number < 10:
+    if number < 0:
+        return "miinus " + to_finnish(abs(number))
+    elif number >= 0 and number < 10:
         return LESS_THAN_TEN[number]
     elif number >= 11 and number <= 19:
         return LESS_THAN_TEN[number % 10] + "toista"

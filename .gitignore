@@ -55,3 +55,6 @@ target/
 
 # CloneDigger
 output.html
+
+# Hypothesis style testing
+.hypothesis/
