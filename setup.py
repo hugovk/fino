@@ -4,8 +4,8 @@ from setuptools import setup
 
 setup(
     name="fino",
-    version="0.1.0",
-    description="Given an integer, output the Finnish word for that number.",
+    version="0.2.0",
+    description="Output the Finnish word for a given integer.",
     url="https://github.com/hugovk/fino",
     author="hugovk",
     keywords=["Finnish", "suomi", "numbers", "integers"],

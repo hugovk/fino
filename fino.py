@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-Given an integer, output the Finnish word for that number.
+Output the Finnish word for a given integer.
 """
 from __future__ import print_function, unicode_literals
 import argparse
@@ -59,8 +59,8 @@ PLURAL_TENS = {
 LIST_OF_TENS = sorted(SINGULAR_TENS.keys())
 
 
-# Windows cmd.exe cannot do Unicode so encode first
 def print_it(text):
+    """ Windows cmd.exe cannot do Unicode so encode first """
     print(text.encode('utf-8'))
 
 
@@ -115,8 +115,7 @@ def to_finnish(number):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="Given an integer, "
-                    "output the Finnish word for that number.",
+        description="Output the Finnish word for a given integer.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('number', type=int, help="An input integer")
     parser.add_argument(
@@ -133,7 +132,7 @@ if __name__ == "__main__":
         else:
             end = int(args.end)
         i = args.number
-        while(i < end+1):
+        while i < end+1:
             print_it(str(i) + " " + to_finnish(i))
             i += 1
 
