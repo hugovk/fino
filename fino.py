@@ -86,9 +86,6 @@ def find_tens_range(number):
     Find where a number comes in the list of tens.
     Return the ten before (or equal to it), or None if out of range.
     """
-    if number < 0:
-        return None
-
     n = bisect.bisect_left(LIST_OF_TENS, number)
 
     if LIST_OF_TENS[n:n+1] == [number]:
