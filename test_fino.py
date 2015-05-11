@@ -276,6 +276,9 @@ class TestIt(unittest.TestCase):
             word = fino.to_finnish(number)
             self.assertNotEqual(word, "en tiedä")
 
+    def test_print_it(self):
+        # Just make sure no exceptions
+        fino.print_it("test")
 
 if __name__ == '__main__':
     unittest.main()
