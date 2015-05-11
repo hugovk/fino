@@ -98,6 +98,8 @@ def to_finnish(number):
     """
     Given an integer, return the Finnish word for that number.
     """
+    if isinstance(number, float):
+        return "en tiedä"
     if number < 0:
         return "miinus " + to_finnish(abs(number))
     elif number >= 0 and number < 10:
@@ -108,10 +110,7 @@ def to_finnish(number):
         return wordify(number, 10)
     else:
         ten = find_tens_range(number)
-        if ten:
-            return wordify(number, ten)
-        else:
-            return "en tiedä"
+        return wordify(number, ten)
 
 
 if __name__ == "__main__":

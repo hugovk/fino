@@ -14,6 +14,11 @@ import fino
 
 class TestIt(unittest.TestCase):
 
+    def test_unsupported_float(self):
+        number = 2.5
+        word = fino.to_finnish(number)
+        self.assertEqual(word, "en tiedä")
+
     def test_negative(self):
         number = -30
         word = fino.to_finnish(number)
