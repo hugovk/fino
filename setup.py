@@ -11,6 +11,24 @@ setup(
     keywords=["Finnish", "suomi", "numbers", "integers"],
     py_modules=("fino",),
     zip_safe=False,
+    classifiers=[
+        "Development Status :: 6 - Mature",
+        "Programming Language :: Python :: 2",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.4",
+        "Programming Language :: Python :: 3.5",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: Implementation :: CPython",
+        "Programming Language :: Python :: Implementation :: PyPy",
+        "Intended Audience :: Developers",
+        "Intended Audience :: Education",
+        "Intended Audience :: Science/Research",
+        "Natural Language :: English",
+        "Natural Language :: Finnish",
+        "Topic :: Artistic Software",
+        "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    ],
     )
 
 # End of file
