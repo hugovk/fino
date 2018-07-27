@@ -3,7 +3,6 @@
 """
 Unit tests for fino.py
 """
-from __future__ import print_function, unicode_literals
 import unittest
 
 import fino
@@ -276,6 +275,7 @@ class TestIt(unittest.TestCase):
     def test_print_it(self):
         # Just make sure no exceptions
         fino.print_it("test")
+
 
 if __name__ == '__main__':
     unittest.main()

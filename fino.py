@@ -3,7 +3,6 @@
 """
 Output the Finnish word for a given integer.
 """
-from __future__ import print_function, unicode_literals
 import argparse
 import bisect
 

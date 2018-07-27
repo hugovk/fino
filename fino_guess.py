@@ -3,15 +3,9 @@
 """
 Guess the number.
 """
-from __future__ import print_function, unicode_literals
 import argparse
 import random
 import fino
-
-try:
-    input = raw_input  # raw_input in Py2 == input in Py3
-except NameError:
-    pass
 
 
 if __name__ == "__main__":
@@ -31,7 +25,7 @@ if __name__ == "__main__":
     # print(number)
 
     while(True):
-        guess = raw_input()
+        guess = input()
         if str(guess) == str(number):
             print("Yes!")
             break
