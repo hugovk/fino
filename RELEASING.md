@@ -14,15 +14,16 @@ git tag -a 0.3.0 -m "Release 0.3.0"
 ```
 * [ ] Release on PyPI:
 ```bash
-python setup.py register
-python setup.py sdist --format=gztar upload
+pip install -U pip setuptools wheel twine keyring
+python setup.py sdist --format=gztar
+twine upload -r pypi dist/fino-0.3.0*
 ```
-* [ ] Push: `git push`
-* [ ] Push tags: `git push --tags`
-* [ ] Create new GitHub release: https://github.com/hugovk/fino/releases/new
-* [ ] Update develop branch from master:
-```bash
-git checkout develop
-git merge master --ff-only
+* [ ] Check installation: `pip install -U fino`
+* [ ] Push commits and tags:
+ ```bash
 git push
+git push --tags
 ```
+* [ ] Create new GitHub release: https://github.com/hugovk/fino/releases/new
+  * Tag: Pick existing tag "0.3.0"
+  * Title: "Release 0.3.0"
