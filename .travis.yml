@@ -1,10 +1,15 @@
 language: python
 
-python:
- - pypy3
- - 3.6
- - 3.5
- - 3.4
+matrix:
+  include:
+    - python: pypy3
+    - python: 3.7
+      dist: xenial
+      sudo: required
+    - python: 3.6
+    - python: 3.5
+    - python: 3.4
+  fast_finish: true
 
 sudo: false
 
@@ -24,5 +29,3 @@ after_script:
  - pep8 --statistics --count *.py
  - pyflakes *.py | tee >(wc -l)
 
-matrix:
-  fast_finish: true
