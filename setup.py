@@ -2,10 +2,15 @@
 
 from setuptools import setup
 
+with open("README.md") as f:
+    long_description = f.read()
+
 setup(
     name="fino",
     version="0.4.0",
     description="Output the Finnish word for a given integer.",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     url="https://github.com/hugovk/fino",
     author="hugovk",
     keywords=["Finnish", "suomi", "numbers", "integers"],
@@ -30,6 +35,6 @@ setup(
         "Topic :: Artistic Software",
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
     ],
-    )
+)
 
 # End of file
