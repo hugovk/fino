@@ -11,7 +11,7 @@ setup(
     keywords=["Finnish", "suomi", "numbers", "integers"],
     py_modules=("fino",),
     zip_safe=False,
-    python_requires=">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
+    python_requires=">=3.4",
     classifiers=[
         "Development Status :: 6 - Mature",
         "Programming Language :: Python :: 3",
