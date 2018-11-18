@@ -1,4 +1,5 @@
 language: python
+cache: pip
 
 matrix:
   include:
@@ -14,18 +15,20 @@ matrix:
 sudo: false
 
 install:
- - pip install coverage
+ - pip install -U pip
+ - pip install black coverage coveralls flake8
 
 script:
+ # Unit tests
  - coverage run --source=fino ./test_fino.py -v
 
+ # Static analysis
+ - pip install pep8 pyflakes
+ - flake8 --statistics --count
+ - black --check --diff
+
 after_success:
- - pip install coveralls
  - coveralls
 
 after_script:
  - coverage report
- - pip install pep8 pyflakes
- - pep8 --statistics --count *.py
- - pyflakes *.py | tee >(wc -l)
-
