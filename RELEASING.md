@@ -15,7 +15,7 @@ git tag -a 0.3.0 -m "Release 0.3.0"
 * [ ] Release on PyPI:
 ```bash
 pip install -U pip setuptools wheel twine keyring
-python setup.py sdist --format=gztar
+python3 setup.py sdist --format=gztar
 twine upload -r pypi dist/fino-0.3.0*
 ```
 * [ ] Check installation: `pip install -U fino`
