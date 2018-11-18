@@ -9,7 +9,6 @@ import fino
 
 
 class TestIt(unittest.TestCase):
-
     def test_unsupported_float(self):
         number = 2.5
         word = fino.to_finnish(number)
@@ -168,14 +167,14 @@ class TestIt(unittest.TestCase):
     def test_26712(self):
         number = 26712
         word = fino.to_finnish(number)
-        self.assertEqual(word,
-                         "kaksikymmentäkuusituhattaseitsemänsataakaksitoista")
+        self.assertEqual(word, "kaksikymmentäkuusituhattaseitsemänsataakaksitoista")
 
     def test_99999(self):
         number = 99999
         word = fino.to_finnish(number)
-        self.assertEqual(word, "yhdeksänkymmentäyhdeksäntuhattayhdeksänsataa"
-                               "yhdeksänkymmentäyhdeksän")
+        self.assertEqual(
+            word, "yhdeksänkymmentäyhdeksäntuhattayhdeksänsataayhdeksänkymmentäyhdeksän"
+        )
 
     def test_100000(self):
         number = 100000
@@ -190,11 +189,14 @@ class TestIt(unittest.TestCase):
     def test_999999(self):
         number = 999999
         word = fino.to_finnish(number)
-        self.assertEqual(word, "yhdeksänsataayhdeksänkymmentäyhdeksäntuhatta"
-                               "yhdeksänsataayhdeksänkymmentäyhdeksän")
+        self.assertEqual(
+            word,
+            "yhdeksänsataayhdeksänkymmentäyhdeksäntuhatta"
+            "yhdeksänsataayhdeksänkymmentäyhdeksän",
+        )
 
     def test_miljoona(self):
-        number = 10**6
+        number = 10 ** 6
         word = fino.to_finnish(number)
         self.assertEqual(word, "miljoona")
 
@@ -206,63 +208,72 @@ class TestIt(unittest.TestCase):
     def test_999999999(self):
         number = 999999999
         word = fino.to_finnish(number)
-        self.assertEqual(word, "yhdeksänsataayhdeksänkymmentäyhdeksänmiljoonaa"
-                               "yhdeksänsataayhdeksänkymmentäyhdeksäntuhatta"
-                               "yhdeksänsataayhdeksänkymmentäyhdeksän")
+        self.assertEqual(
+            word,
+            "yhdeksänsataayhdeksänkymmentäyhdeksänmiljoonaa"
+            "yhdeksänsataayhdeksänkymmentäyhdeksäntuhatta"
+            "yhdeksänsataayhdeksänkymmentäyhdeksän",
+        )
 
     def test_miljardi(self):
-        number = 10**9
+        number = 10 ** 9
         word = fino.to_finnish(number)
         self.assertEqual(word, "miljardi")
 
     def test_1234567890(self):
         number = 1234567890
         word = fino.to_finnish(number)
-        self.assertEqual(word, "miljardi"
-                               "kaksisataakolmekymmentäneljämiljoonaa"
-                               "viisisataakuusikymmentäseitsemäntuhatta"
-                               "kahdeksansataayhdeksänkymmentä")
+        self.assertEqual(
+            word,
+            "miljardi"
+            "kaksisataakolmekymmentäneljämiljoonaa"
+            "viisisataakuusikymmentäseitsemäntuhatta"
+            "kahdeksansataayhdeksänkymmentä",
+        )
 
     def test_287654321004(self):
         number = 287654321004
         word = fino.to_finnish(number)
-        self.assertEqual(word, "kaksisataakahdeksankymmentäseitsemänmiljardia"
-                               "kuusisataaviisikymmentäneljämiljoonaa"
-                               "kolmesataakaksikymmentäyksituhatta"
-                               "neljä")
+        self.assertEqual(
+            word,
+            "kaksisataakahdeksankymmentäseitsemänmiljardia"
+            "kuusisataaviisikymmentäneljämiljoonaa"
+            "kolmesataakaksikymmentäyksituhatta"
+            "neljä",
+        )
 
     def test_biljoona(self):
-        number = 10**12
+        number = 10 ** 12
         word = fino.to_finnish(number)
         self.assertEqual(word, "biljoona")
 
     def test_2biljoonaa(self):
-        number = 2 * 10**12
+        number = 2 * 10 ** 12
         word = fino.to_finnish(number)
         self.assertEqual(word, "kaksibiljoonaa")
 
     def test_4000biljoonaa(self):
-        number = 4000 * 10**12
+        number = 4000 * 10 ** 12
         word = fino.to_finnish(number)
         self.assertEqual(word, "neljätuhattabiljoonaa")
 
     def test_googol(self):
-        number = 10**100
+        number = 10 ** 100
         word = fino.to_finnish(number)
         self.assertEqual(word, "googol")
 
     def test_8googolia(self):
-        number = 8 * 10**100 + 1
+        number = 8 * 10 ** 100 + 1
         word = fino.to_finnish(number)
         self.assertEqual(word, "kahdeksangoogoliayksi")
 
     def test_sentiljoona(self):
-        number = 10**600
+        number = 10 ** 600
         word = fino.to_finnish(number)
         self.assertEqual(word, "sentiljoona")
 
     def test_3sentiljoonaa(self):
-        number = 3 * 10**600
+        number = 3 * 10 ** 600
         word = fino.to_finnish(number)
         self.assertEqual(word, "kolmesentiljoonaa")
 
@@ -277,7 +288,7 @@ class TestIt(unittest.TestCase):
         fino.print_it("test")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
 # End of file
