@@ -1,21 +1,22 @@
 # Release Checklist
 
 * [ ] Get master to the appropriate code release state. [Travis CI](https://travis-ci.org/hugovk/fino) should be running cleanly for all merges to master.
-* [ ] Update version in `setup.py` and commit:
+* [ ] Update version:
 ```bash
 git checkout master
 edit setup.py
+```
+* [ ] Commit and tag with the version number:
+```bash
 git add setup.py
 git commit -m "Release 0.3.0"
-```
-* [ ] Tag the last commit with the version number:
-```bash
 git tag -a 0.3.0 -m "Release 0.3.0"
 ```
-* [ ] Release on PyPI:
+* [ ] Create a distribution and release on PyPI:
 ```bash
 pip install -U pip setuptools wheel twine keyring
-python3 setup.py sdist --format=gztar
+rm -rf build
+python3 setup.py sdist --format=gztar bdist_wheel
 twine upload -r pypi dist/fino-0.3.0*
 ```
 * [ ] Check installation: `pip install -U fino`
