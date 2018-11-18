@@ -177,17 +177,17 @@ class TestIt(unittest.TestCase):
         )
 
     def test_100000(self):
-        number = 100000
+        number = 100_000
         word = fino.to_finnish(number)
         self.assertEqual(word, "satatuhatta")
 
     def test_111111(self):
-        number = 111111
+        number = 111_111
         word = fino.to_finnish(number)
         self.assertEqual(word, "satayksitoistatuhattasatayksitoista")
 
     def test_999999(self):
-        number = 999999
+        number = 999_999
         word = fino.to_finnish(number)
         self.assertEqual(
             word,
@@ -201,12 +201,12 @@ class TestIt(unittest.TestCase):
         self.assertEqual(word, "miljoona")
 
     def test_5002010(self):
-        number = 5002010
+        number = 5_002_010
         word = fino.to_finnish(number)
         self.assertEqual(word, "viisimiljoonaakaksituhattakymmenen")
 
     def test_999999999(self):
-        number = 999999999
+        number = 999_999_999
         word = fino.to_finnish(number)
         self.assertEqual(
             word,
@@ -221,7 +221,7 @@ class TestIt(unittest.TestCase):
         self.assertEqual(word, "miljardi")
 
     def test_1234567890(self):
-        number = 1234567890
+        number = 1_234_567_890
         word = fino.to_finnish(number)
         self.assertEqual(
             word,
@@ -232,7 +232,7 @@ class TestIt(unittest.TestCase):
         )
 
     def test_287654321004(self):
-        number = 287654321004
+        number = 287_654_321_004
         word = fino.to_finnish(number)
         self.assertEqual(
             word,
@@ -279,7 +279,7 @@ class TestIt(unittest.TestCase):
 
     def test_range(self):
         # Just check no errors
-        for number in range(0, 100000):
+        for number in range(0, 100_000):
             word = fino.to_finnish(number)
             self.assertNotEqual(word, "en tiedä")
 

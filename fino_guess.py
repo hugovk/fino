@@ -13,7 +13,9 @@ if __name__ == "__main__":
         description="Guess the number.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
-    parser.add_argument("-l", "--limit", type=int, default=1000000, help="Upper limit")
+    parser.add_argument(
+        "-l", "--limit", type=int, default=1_000_000, help="Upper limit"
+    )
     parser.add_argument(
         "-g", "--guesses", type=int, default=3, help="Number of guesses allowed"
     )
