@@ -3,13 +3,10 @@ cache: pip
 
 matrix:
   include:
-    - python: pypy3
     - python: 3.7
       dist: xenial
       sudo: required
     - python: 3.6
-    - python: 3.5
-    - python: 3.4
   fast_finish: true
 
 sudo: false
@@ -23,9 +20,8 @@ script:
  - coverage run --source=fino ./test_fino.py -v
 
  # Static analysis
- - pip install pep8 pyflakes
  - flake8 --statistics --count
- - black --check --diff
+ - black --check --diff --py36 .
 
 after_success:
  - coveralls
