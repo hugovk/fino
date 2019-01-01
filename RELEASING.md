@@ -9,22 +9,23 @@ edit setup.py
 * [ ] Commit and tag with the version number:
 ```bash
 git add setup.py
-git commit -m "Release 0.3.0"
-git tag -a 0.3.0 -m "Release 0.3.0"
+git commit -m "Release 0.6.0"
+git tag -a 0.6.0 -m "Release 0.6.0"
 ```
 * [ ] Create a distribution and release on PyPI:
 ```bash
-pip install -U pip setuptools wheel twine keyring
+pip3 install -U pip setuptools wheel twine keyring
 rm -rf build
 python3 setup.py sdist --format=gztar bdist_wheel
-twine upload -r pypi dist/fino-0.3.0*
+twine check dist/fino-0.6.0*
+twine upload -r pypi dist/fino-0.6.0*
 ```
-* [ ] Check installation: `pip install -U fino`
+* [ ] Check installation: `pip3 uninstall -y fino && pip install -U fino`
 * [ ] Push commits and tags:
  ```bash
 git push
 git push --tags
 ```
 * [ ] Create new GitHub release: https://github.com/hugovk/fino/releases/new
-  * Tag: Pick existing tag "0.3.0"
-  * Title: "Release 0.3.0"
+  * Tag: Pick existing tag "0.6.0"
+  * Title: "Release 0.6.0"
