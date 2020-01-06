@@ -35,7 +35,7 @@ Or from requirements.txt:
 Usage
 -----
 
-```python
+```pycon
 >>> import fino
 >>> fino.to_finnish(123)
 'satakaksikymmentäkolme'
