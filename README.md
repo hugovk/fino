@@ -5,7 +5,7 @@ fino
 [![Supported Python versions](https://img.shields.io/pypi/pyversions/fino.svg)](https://pypi.org/project/fino/)
 [![Build Status](https://travis-ci.org/hugovk/fino.svg?branch=master)](https://travis-ci.org/hugovk/fino)
 [![Coverage Status](https://coveralls.io/repos/github/hugovk/fino/badge.svg?branch=master)](https://coveralls.io/github/hugovk/fino?branch=master)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 Output the Finnish word for a given integer.
 
