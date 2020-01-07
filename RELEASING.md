@@ -28,4 +28,3 @@ git push --tags
 ```
 * [ ] Create new GitHub release: https://github.com/hugovk/fino/releases/new
   * Tag: Pick existing tag "0.6.0"
-  * Title: "Release 0.6.0"
