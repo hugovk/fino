@@ -7,7 +7,7 @@ with open("README.md") as f:
 
 setup(
     name="fino",
-    version="0.5.0",
+    version="0.6.0",
     description="Output the Finnish word for a given integer.",
     long_description=long_description,
     long_description_content_type="text/markdown",
