@@ -21,7 +21,7 @@ script:
 
  # Static analysis
  - flake8 --statistics --count
- - black --check --diff --py36 .
+ - black --check --diff --target-version py36 .
 
 after_success:
  - coveralls
