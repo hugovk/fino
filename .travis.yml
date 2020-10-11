@@ -9,8 +9,6 @@ matrix:
     - python: 3.6
   fast_finish: true
 
-sudo: false
-
 install:
  - pip install -U pip
  - pip install -U black coverage coveralls flake8
