@@ -1,6 +1,10 @@
 # Release Checklist
 
-* [ ] Get `main` to the appropriate code release state. [Travis CI](https://travis-ci.org/hugovk/fino) should be running cleanly for all merges to `main`.
+* [ ] Get `main` to the appropriate code release state.
+      [GitHub Actions](https://github.com/hugovk/fino/actions) should be running
+      cleanly for all merges to `main`.
+      [![GitHub Actions status](https://github.com/hugovk/fino/workflows/Test/badge.svg)](https://github.com/hugovk/fino/actions)
+
 * [ ] Update version:
 ```bash
 git checkout main
