@@ -3,8 +3,8 @@ fino
 
 [![PyPI version](https://img.shields.io/pypi/v/fino.svg)](https://pypi.org/project/fino/)
 [![Supported Python versions](https://img.shields.io/pypi/pyversions/fino.svg)](https://pypi.org/project/fino/)
-[![Build Status](https://travis-ci.org/hugovk/fino.svg?branch=master)](https://travis-ci.org/hugovk/fino)
-[![Coverage Status](https://coveralls.io/repos/github/hugovk/fino/badge.svg?branch=master)](https://coveralls.io/github/hugovk/fino?branch=master)
+[![Build Status](https://travis-ci.org/hugovk/fino.svg?branch=main)](https://travis-ci.org/hugovk/fino)
+[![Coverage Status](https://coveralls.io/repos/github/hugovk/fino/badge.svg?branch=main)](https://coveralls.io/github/hugovk/fino?branch=main)
 [![DOI](https://zenodo.org/badge/24323566.svg)](https://zenodo.org/badge/latestdoi/24323566)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
