@@ -11,7 +11,8 @@
 
 Output the Finnish word for a given integer.
 
- * Used by [hugovk/everyfinnishno](https://github.com/hugovk/everyfinnishno) to tweet [@EveryFinnishNo](https://twitter.com/EveryFinnishNo).
+- Used by [hugovk/everyfinnishno](https://github.com/hugovk/everyfinnishno) to tweet
+  [@EveryFinnishNo](https://twitter.com/EveryFinnishNo).
 
 ## Installation
 
