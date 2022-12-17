@@ -2,6 +2,8 @@
 """
 Unit tests for fino.py
 """
+from __future__ import annotations
+
 import unittest
 
 import fino
@@ -195,7 +197,7 @@ class TestIt(unittest.TestCase):
         )
 
     def test_miljoona(self):
-        number = 10 ** 6
+        number = 10**6
         word = fino.to_finnish(number)
         self.assertEqual(word, "miljoona")
 
@@ -215,7 +217,7 @@ class TestIt(unittest.TestCase):
         )
 
     def test_miljardi(self):
-        number = 10 ** 9
+        number = 10**9
         word = fino.to_finnish(number)
         self.assertEqual(word, "miljardi")
 
@@ -242,37 +244,37 @@ class TestIt(unittest.TestCase):
         )
 
     def test_biljoona(self):
-        number = 10 ** 12
+        number = 10**12
         word = fino.to_finnish(number)
         self.assertEqual(word, "biljoona")
 
     def test_2biljoonaa(self):
-        number = 2 * 10 ** 12
+        number = 2 * 10**12
         word = fino.to_finnish(number)
         self.assertEqual(word, "kaksibiljoonaa")
 
     def test_4000biljoonaa(self):
-        number = 4000 * 10 ** 12
+        number = 4000 * 10**12
         word = fino.to_finnish(number)
         self.assertEqual(word, "neljätuhattabiljoonaa")
 
     def test_googol(self):
-        number = 10 ** 100
+        number = 10**100
         word = fino.to_finnish(number)
         self.assertEqual(word, "googol")
 
     def test_8googolia(self):
-        number = 8 * 10 ** 100 + 1
+        number = 8 * 10**100 + 1
         word = fino.to_finnish(number)
         self.assertEqual(word, "kahdeksangoogoliayksi")
 
     def test_sentiljoona(self):
-        number = 10 ** 600
+        number = 10**600
         word = fino.to_finnish(number)
         self.assertEqual(word, "sentiljoona")
 
     def test_3sentiljoonaa(self):
-        number = 3 * 10 ** 600
+        number = 3 * 10**600
         word = fino.to_finnish(number)
         self.assertEqual(word, "kolmesentiljoonaa")
 

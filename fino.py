@@ -2,6 +2,8 @@
 """
 Output the Finnish word for a given integer.
 """
+from __future__ import annotations
+
 import argparse
 import bisect
 
@@ -22,39 +24,39 @@ SINGULAR_TENS = {
     10: "kymmenen",
     100: "sata",
     1000: "tuhat",
-    10 ** 6: "miljoona",
-    10 ** 9: "miljardi",
-    10 ** 12: "biljoona",
-    10 ** 18: "triljoona",
-    10 ** 24: "kvadriljoona",
-    10 ** 30: "kvintiljoona",
-    10 ** 36: "sekstiljoona",
-    10 ** 42: "septiljoona",
-    10 ** 48: "oktiljoona",
-    10 ** 54: "noviljoona",
-    10 ** 60: "dekiljoona",
-    10 ** 66: "undekiljoona",
-    10 ** 72: "duodekiljoona",
-    10 ** 78: "tredekiljoona",
-    10 ** 84: "kvattuordekiljoona",
-    10 ** 90: "kvindekiljoona",
-    10 ** 96: "sedekiljoona",
-    10 ** 100: "googol",
-    10 ** 102: "septendekiljoona",
-    10 ** 108: "duodevigintiljoona",
-    10 ** 114: "undevigintiljoona",
-    10 ** 120: "vigintiljoona",
-    10 ** 126: "unvigintiljoona",
-    10 ** 180: "trigintiljoona",
-    10 ** 600: "sentiljoona",
+    10**6: "miljoona",
+    10**9: "miljardi",
+    10**12: "biljoona",
+    10**18: "triljoona",
+    10**24: "kvadriljoona",
+    10**30: "kvintiljoona",
+    10**36: "sekstiljoona",
+    10**42: "septiljoona",
+    10**48: "oktiljoona",
+    10**54: "noviljoona",
+    10**60: "dekiljoona",
+    10**66: "undekiljoona",
+    10**72: "duodekiljoona",
+    10**78: "tredekiljoona",
+    10**84: "kvattuordekiljoona",
+    10**90: "kvindekiljoona",
+    10**96: "sedekiljoona",
+    10**100: "googol",
+    10**102: "septendekiljoona",
+    10**108: "duodevigintiljoona",
+    10**114: "undevigintiljoona",
+    10**120: "vigintiljoona",
+    10**126: "unvigintiljoona",
+    10**180: "trigintiljoona",
+    10**600: "sentiljoona",
 }
 # Just the few which don't have a simple -a partitive suffix
-PLURAL_TENS = {10: "kymmentä", 1000: "tuhatta", 10 ** 100: "googolia"}
+PLURAL_TENS = {10: "kymmentä", 1000: "tuhatta", 10**100: "googolia"}
 LIST_OF_TENS = sorted(SINGULAR_TENS.keys())
 
 
 def print_it(text):
-    """ Windows cmd.exe cannot do Unicode so encode first """
+    """Windows cmd.exe cannot do Unicode so encode first"""
     print(text.encode("utf-8"))
 
 

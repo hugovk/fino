@@ -2,10 +2,12 @@
 """
 Guess the number.
 """
+from __future__ import annotations
+
 import argparse
 import random
-import fino
 
+import fino
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
