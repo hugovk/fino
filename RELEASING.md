@@ -1,9 +1,9 @@
 # Release Checklist
 
-* [ ] Get master to the appropriate code release state. [Travis CI](https://travis-ci.org/hugovk/fino) should be running cleanly for all merges to master.
+* [ ] Get `main` to the appropriate code release state. [Travis CI](https://travis-ci.org/hugovk/fino) should be running cleanly for all merges to `main`.
 * [ ] Update version:
 ```bash
-git checkout master
+git checkout main
 edit setup.py
 ```
 * [ ] Commit and tag with the version number:
