@@ -5,38 +5,18 @@
       for all merges to `main`.
       [![GitHub Actions status](https://github.com/hugovk/fino/workflows/Test/badge.svg)](https://github.com/hugovk/fino/actions)
 
-- [ ] Update version:
+- [ ] Edit release draft, adjust text if needed: https://github.com/hugovk/fino/releases
+
+- [ ] Check next tag is correct, amend if needed
+
+- [ ] Publish release
+
+- [ ] Check the tagged
+      [GitHub Actions build](https://github.com/hugovk/fino/actions/workflows/deploy.yml)
+      has deployed to [PyPI](https://pypi.org/project/fino/#history)
+
+- [ ] Check installation:
 
 ```bash
-git checkout main
-edit setup.py
+pip3 uninstall -y fino && pip3 install -U fino && python3 -c "import fino; print(fino.to_finnish(123))"
 ```
-
-- [ ] Commit and tag with the version number:
-
-```bash
-git add setup.py
-git commit -m "Release 0.6.0"
-git tag -a 0.6.0 -m "Release 0.6.0"
-```
-
-- [ ] Create a distribution and release on PyPI:
-
-```bash
-pip3 install -U pip setuptools wheel twine keyring
-rm -rf build
-python3 setup.py sdist --format=gztar bdist_wheel
-twine check dist/fino-0.6.0*
-twine upload -r pypi dist/fino-0.6.0*
-```
-
-- [ ] Check installation: `pip3 uninstall -y fino && pip install -U fino`
-- [ ] Push commits and tags:
-
-```bash
-git push
-git push --tags
-```
-
-- [ ] Create new GitHub release: https://github.com/hugovk/fino/releases/new
-  - Tag: Pick existing tag "0.6.0"
