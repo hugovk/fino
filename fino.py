@@ -55,12 +55,12 @@ PLURAL_TENS = {10: "kymmentä", 1000: "tuhatta", 10**100: "googolia"}
 LIST_OF_TENS = sorted(SINGULAR_TENS.keys())
 
 
-def print_it(text):
+def print_it(text: str) -> None:
     """Windows cmd.exe cannot do Unicode so encode first"""
     print(text.encode("utf-8"))
 
 
-def wordify(number, tens):
+def wordify(number: int, tens: int) -> str:
     if number == tens:
         return SINGULAR_TENS[tens]
     d, m = divmod(number, tens)
@@ -77,7 +77,7 @@ def wordify(number, tens):
     return word
 
 
-def find_tens_range(number):
+def find_tens_range(number: int) -> int:
     """
     Find where a number comes in the list of tens.
     Return the ten before (or equal to it), or None if out of range.
@@ -90,7 +90,7 @@ def find_tens_range(number):
         return LIST_OF_TENS[n - 1]
 
 
-def to_finnish(number):
+def to_finnish(number: int) -> str:
     """
     Given an integer, return the Finnish word for that number.
     """
