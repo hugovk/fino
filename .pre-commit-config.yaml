@@ -42,6 +42,7 @@ repos:
     rev: v0.991
     hooks:
       - id: mypy
+        additional_dependencies: [pytest==7.2.0]
         args: [--strict, --pretty, --show-error-codes]
 
   - repo: https://github.com/tox-dev/pyproject-fmt
