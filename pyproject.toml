@@ -24,7 +24,6 @@ classifiers = [
   "Intended Audience :: Science/Research",
   "Natural Language :: English",
   "Natural Language :: Finnish",
-  "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3 :: Only",
   "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
