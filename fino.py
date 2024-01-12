@@ -98,11 +98,11 @@ def to_finnish(number: int) -> str:
         return "en tiedä"
     if number < 0:
         return "miinus " + to_finnish(abs(number))
-    elif number >= 0 and number < 10:
+    elif 0 <= number < 10:
         return LESS_THAN_TEN[number]
-    elif number >= 11 and number <= 19:
+    elif 11 <= number <= 19:
         return LESS_THAN_TEN[number % 10] + "toista"
-    elif number == 10 or number >= 20 and number <= 99:
+    elif number == 10 or 20 <= number <= 99:
         return wordify(number, 10)
     else:
         ten = find_tens_range(number)
