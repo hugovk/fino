@@ -4,7 +4,7 @@
 [![Supported Python versions](https://img.shields.io/pypi/pyversions/fino.svg?logo=python&logoColor=FFE873)](https://pypi.org/project/fino/)
 [![PyPI downloads](https://img.shields.io/pypi/dm/fino.svg)](https://pypistats.org/packages/fino)
 [![GitHub Actions status](https://github.com/hugovk/fino/actions/workflows/test.yml/badge.svg)](https://github.com/hugovk/fino/actions/workflows/test.yml)
-[![codecov](https://codecov.io/gh/hugovk/fino/branch/main/graph/badge.svg)](https://codecov.io/gh/hugovk/fino)
+[![Codecov](https://codecov.io/gh/hugovk/fino/branch/main/graph/badge.svg)](https://codecov.io/gh/hugovk/fino)
 [![Licence](https://img.shields.io/github/license/hugovk/fino.svg)](LICENSE.txt)
 [![DOI](https://zenodo.org/badge/24323566.svg)](https://zenodo.org/badge/latestdoi/24323566)
 [![Code style: Black](https://img.shields.io/badge/code%20style-Black-000000.svg)](https://github.com/psf/black)

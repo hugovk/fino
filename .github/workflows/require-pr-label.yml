@@ -10,9 +10,10 @@ jobs:
 
     permissions:
       issues: write
+      pull-requests: write
 
     steps:
-      - uses: mheap/github-action-required-labels@v4
+      - uses: mheap/github-action-required-labels@v5
         with:
           mode: minimum
           count: 1

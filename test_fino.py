@@ -11,7 +11,7 @@ import fino
 
 def test_unsupported_float() -> None:
     number = 2.5
-    word = fino.to_finnish(number)  # type: ignore
+    word = fino.to_finnish(number)  # type: ignore[arg-type]
     assert word == "en tiedä"
 
 
