@@ -13,13 +13,25 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
     hooks:
+      - id: check-added-large-files
       - id: check-case-conflict
       - id: check-merge-conflict
       - id: check-toml
       - id: check-yaml
       - id: debug-statements
       - id: end-of-file-fixer
+      - id: forbid-submodules
       - id: trailing-whitespace
+
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.28.6
+    hooks:
+      - id: check-github-workflows
+
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.7.1
+    hooks:
+      - id: actionlint
 
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.10.1
