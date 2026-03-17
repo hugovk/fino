@@ -2,6 +2,7 @@
 """
 Output the Finnish word for a given integer.
 """
+
 from __future__ import annotations
 
 import argparse
