@@ -56,31 +56,39 @@ def test_unsupported_float() -> None:
         (111_111, "satayksitoistatuhattasatayksitoista"),
         (
             999_999,
-            "yhdeksänsataayhdeksänkymmentäyhdeksäntuhatta"
-            "yhdeksänsataayhdeksänkymmentäyhdeksän",
+            (
+                "yhdeksänsataayhdeksänkymmentäyhdeksäntuhatta"
+                "yhdeksänsataayhdeksänkymmentäyhdeksän"
+            ),
         ),
         (10**6, "miljoona"),
         (5_002_010, "viisimiljoonaakaksituhattakymmenen"),
         (
             999_999_999,
-            "yhdeksänsataayhdeksänkymmentäyhdeksänmiljoonaa"
-            "yhdeksänsataayhdeksänkymmentäyhdeksäntuhatta"
-            "yhdeksänsataayhdeksänkymmentäyhdeksän",
+            (
+                "yhdeksänsataayhdeksänkymmentäyhdeksänmiljoonaa"
+                "yhdeksänsataayhdeksänkymmentäyhdeksäntuhatta"
+                "yhdeksänsataayhdeksänkymmentäyhdeksän"
+            ),
         ),
         (10**9, "miljardi"),
         (
             1234567890,
-            "miljardi"
-            "kaksisataakolmekymmentäneljämiljoonaa"
-            "viisisataakuusikymmentäseitsemäntuhatta"
-            "kahdeksansataayhdeksänkymmentä",
+            (
+                "miljardi"
+                "kaksisataakolmekymmentäneljämiljoonaa"
+                "viisisataakuusikymmentäseitsemäntuhatta"
+                "kahdeksansataayhdeksänkymmentä"
+            ),
         ),
         (
             287_654_321_004,
-            "kaksisataakahdeksankymmentäseitsemänmiljardia"
-            "kuusisataaviisikymmentäneljämiljoonaa"
-            "kolmesataakaksikymmentäyksituhatta"
-            "neljä",
+            (
+                "kaksisataakahdeksankymmentäseitsemänmiljardia"
+                "kuusisataaviisikymmentäneljämiljoonaa"
+                "kolmesataakaksikymmentäyksituhatta"
+                "neljä"
+            ),
         ),
         (10**12, "biljoona"),
         (2 * 10**12, "kaksibiljoonaa"),
